@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364FCF492B86298A00CC9CCD /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */; };
 		36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */; };
 		36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */; };
 		36EEF9182B85D61B005E91B7 /* QuotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EEF9162B85D61A005E91B7 /* QuotesCell.xib */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
 		36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				36EEF9322B85D774005E91B7 /* ViewController.swift */,
+				364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				36EEF9192B85D61B005E91B7 /* QuotesCell.swift in Sources */,
 				36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */,
 				36EEF9222B85D644005E91B7 /* Quote.swift in Sources */,
+				364FCF492B86298A00CC9CCD /* ThemesTableViewController.swift in Sources */,
 				36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */,
 				36EEF9352B85D775005E91B7 /* CustomLaunchScreen.swift in Sources */,
 			);
