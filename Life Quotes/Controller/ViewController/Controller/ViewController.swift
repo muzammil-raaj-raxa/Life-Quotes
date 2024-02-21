@@ -14,9 +14,9 @@ class ViewController: UIViewController {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image4.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image3.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image6.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image7.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image8.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
     Quote(image: UIImage(named: "image1.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
     Quote(image: UIImage(named: "image5.jpeg"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
@@ -45,6 +45,23 @@ class ViewController: UIViewController {
     quotestblView.addGestureRecognizer(swipeDown)
     
     quotestblView.isScrollEnabled = false
+  }
+  
+  @IBAction func forYouBtnAction(_ sender: UIButton) {
+    
+    print("For you clicked")
+  }
+  
+  @IBAction func themeBtnAction(_ sender: UIButton) {
+    print("Theme clicked")
+  }
+  
+  @IBAction func profileBtnAction(_ sender: UIButton) {
+    print("Profile clicked")
+  }
+  
+  @IBAction func configureBtnAction(_ sender: UIButton) {
+    print("Configure clicked")
   }
   
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
