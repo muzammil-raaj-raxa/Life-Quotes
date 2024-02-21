@@ -33,7 +33,7 @@
                                         <rect key="frame" x="30" y="5" width="120" height="60"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMU-m9-7IB">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="46"/>
+                                                <rect key="frame" x="0.0" y="8" width="120" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.grid.2x2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PKb-gv-JqO">
                                                         <rect key="frame" x="8" y="9" width="30" height="27.5"/>
@@ -86,7 +86,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MMU-m9-7IB" secondAttribute="trailing" id="Ng7-RI-Q3H"/>
-                                            <constraint firstItem="MMU-m9-7IB" firstAttribute="top" secondItem="det-Wh-awe" secondAttribute="top" id="Ol7-NS-T7r"/>
+                                            <constraint firstItem="MMU-m9-7IB" firstAttribute="top" secondItem="det-Wh-awe" secondAttribute="top" constant="8" id="Ol7-NS-T7r"/>
                                             <constraint firstAttribute="width" constant="120" id="VbB-Jk-UfC"/>
                                             <constraint firstItem="MMU-m9-7IB" firstAttribute="leading" secondItem="det-Wh-awe" secondAttribute="leading" id="yQC-qG-dCF"/>
                                         </constraints>
@@ -257,7 +257,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Quotes 🪶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcw-rR-AAH">
-                                <rect key="frame" x="115" y="426.5" width="184" height="43"/>
+                                <rect key="frame" x="115" y="427" width="184" height="42.5"/>
                                 <fontDescription key="fontDescription" name="CreamCake" family="Cream Cake" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
