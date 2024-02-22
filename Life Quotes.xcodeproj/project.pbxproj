@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		364FCF492B86298A00CC9CCD /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */; };
+		364FCF4B2B8705D500CC9CCD /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF4A2B8705D500CC9CCD /* ThemeViewController.swift */; };
+		364FCF512B8710EA00CC9CCD /* FontStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */; };
+		364FCF522B8710EA00CC9CCD /* FontStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */; };
+		364FCF542B871FAA00CC9CCD /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF532B871FAA00CC9CCD /* FontStyles.swift */; };
 		36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */; };
 		36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */; };
 		36EEF9182B85D61B005E91B7 /* QuotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EEF9162B85D61A005E91B7 /* QuotesCell.xib */; };
@@ -53,7 +56,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
+		364FCF4A2B8705D500CC9CCD /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleCell.swift; sourceTree = "<group>"; };
+		364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontStyleCell.xib; sourceTree = "<group>"; };
+		364FCF532B871FAA00CC9CCD /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364FCF4E2B8710A700CC9CCD /* FontStyles */ = {
+			isa = PBXGroup;
+			children = (
+				364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */,
+				364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */,
+			);
+			path = FontStyles;
+			sourceTree = "<group>";
+		};
 		36EEF8F42B85D5AC005E91B7 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +150,7 @@
 		36EEF9142B85D61A005E91B7 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				364FCF4E2B8710A700CC9CCD /* FontStyles */,
 				36EEF9152B85D61A005E91B7 /* QuotesCells */,
 			);
 			path = xibs;
@@ -162,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				36EEF9212B85D644005E91B7 /* Quote.swift */,
+				364FCF532B871FAA00CC9CCD /* FontStyles.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				36EEF9322B85D774005E91B7 /* ViewController.swift */,
-				364FCF482B86298A00CC9CCD /* ThemesTableViewController.swift */,
+				364FCF4A2B8705D500CC9CCD /* ThemeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +323,7 @@
 				36EEF91F2B85D633005E91B7 /* Launch Screen.storyboard in Resources */,
 				36EEF91E2B85D633005E91B7 /* Main.storyboard in Resources */,
 				36EEF92A2B85D686005E91B7 /* Assets.xcassets in Resources */,
+				364FCF522B8710EA00CC9CCD /* FontStyleCell.xib in Resources */,
 				36EEF92D2B85D6E6005E91B7 /* Cream Cake.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,10 +345,12 @@
 			files = (
 				36EEF9362B85D775005E91B7 /* ViewController.swift in Sources */,
 				36EEF9192B85D61B005E91B7 /* QuotesCell.swift in Sources */,
+				364FCF542B871FAA00CC9CCD /* FontStyles.swift in Sources */,
+				364FCF4B2B8705D500CC9CCD /* ThemeViewController.swift in Sources */,
 				36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */,
 				36EEF9222B85D644005E91B7 /* Quote.swift in Sources */,
-				364FCF492B86298A00CC9CCD /* ThemesTableViewController.swift in Sources */,
 				36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */,
+				364FCF512B8710EA00CC9CCD /* FontStyleCell.swift in Sources */,
 				36EEF9352B85D775005E91B7 /* CustomLaunchScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

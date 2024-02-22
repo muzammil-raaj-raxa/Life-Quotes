@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image6.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
     Quote(image: UIImage(named: "image7.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
     Quote(image: UIImage(named: "image8.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
     Quote(image: UIImage(named: "image1.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
@@ -53,7 +53,9 @@ class ViewController: UIViewController {
   }
   
   @IBAction func themeBtnAction(_ sender: UIButton) {
-    print("Theme clicked")
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController {
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
   }
   
   @IBAction func profileBtnAction(_ sender: UIButton) {

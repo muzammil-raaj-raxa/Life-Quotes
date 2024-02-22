@@ -1,9 +1,4 @@
-//
-//  Quote.swift
-//  LifeQuotes
-//
-//  Created by Mag isb-10 on 20/02/2024.
-//
+
 
 // Quote.swift
 
