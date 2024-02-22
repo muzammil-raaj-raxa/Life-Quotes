@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3648467A2B8762070061E796 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364846792B8762070061E796 /* Constants.swift */; };
 		364FCF4B2B8705D500CC9CCD /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF4A2B8705D500CC9CCD /* ThemeViewController.swift */; };
 		364FCF512B8710EA00CC9CCD /* FontStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */; };
 		364FCF522B8710EA00CC9CCD /* FontStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		364846792B8762070061E796 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		364FCF4A2B8705D500CC9CCD /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleCell.swift; sourceTree = "<group>"; };
 		364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontStyleCell.xib; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				36EEF92B2B85D6E6005E91B7 /* Font */,
 				36EEF9292B85D686005E91B7 /* Assets.xcassets */,
 				36EEF90E2B85D5AE005E91B7 /* Info.plist */,
+				364846792B8762070061E796 /* Constants.swift */,
 			);
 			path = "Life Quotes";
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				364FCF542B871FAA00CC9CCD /* FontStyles.swift in Sources */,
 				364FCF4B2B8705D500CC9CCD /* ThemeViewController.swift in Sources */,
 				36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */,
+				3648467A2B8762070061E796 /* Constants.swift in Sources */,
 				36EEF9222B85D644005E91B7 /* Quote.swift in Sources */,
 				36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */,
 				364FCF512B8710EA00CC9CCD /* FontStyleCell.swift in Sources */,

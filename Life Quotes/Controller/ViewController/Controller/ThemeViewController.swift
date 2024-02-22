@@ -7,49 +7,20 @@
 
 import UIKit
 
+protocol ThemeSelectionDelegate: AnyObject {
+  func didSelectFont(font: UIFont)
+}
+
 class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
-
+  
   @IBOutlet weak var themeTableView: UITableView!
+  
   var currentIndexPath: IndexPath?
-  
-  //MARK: - Font names and styles
-  
-  var font: [FontStyles] = [
-    FontStyles(fontName: "Arial", fontStyle: UIFont(name: "Arial", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Helvetica", fontStyle: UIFont(name: "Helvetica", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Times New Roman", fontStyle: UIFont(name: "Times New Roman", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Courier New", fontStyle: UIFont(name: "Courier New", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Georgia", fontStyle: UIFont(name: "Georgia", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Palatino", fontStyle: UIFont(name: "Palatino", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Verdana", fontStyle: UIFont(name: "Verdana", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "American Typewriter", fontStyle: UIFont(name: "American Typewriter", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Avenir", fontStyle: UIFont(name: "Avenir", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Futura", fontStyle: UIFont(name: "Futura", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-    FontStyles(fontName: "Copperplate", fontStyle: UIFont(name: "Copperplate", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-    FontStyles(fontName: "Optima", fontStyle: UIFont(name: "Optima", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-    FontStyles(fontName: "Didot", fontStyle: UIFont(name: "Didot", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-    FontStyles(fontName: "Garamond", fontStyle: UIFont(name: "Garamond", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-    FontStyles(fontName: "Hoefler Text", fontStyle: UIFont(name: "Hoefler Text", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Baskerville", fontStyle: UIFont(name: "Baskerville", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Symbol", fontStyle: UIFont(name: "Symbol", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Charter", fontStyle: UIFont(name: "Charter", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Menlo", fontStyle: UIFont(name: "Menlo", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Courier", fontStyle: UIFont(name: "Courier", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Bradley Hand", fontStyle: UIFont(name: "Bradley Hand", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Chalkduster", fontStyle: UIFont(name: "Chalkduster", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Noteworthy", fontStyle: UIFont(name: "Noteworthy", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Marker Felt", fontStyle: UIFont(name: "Marker Felt", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Zapfino", fontStyle: UIFont(name: "Zapfino", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Gill Sans", fontStyle: UIFont(name: "Gill Sans", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Geneva", fontStyle: UIFont(name: "Geneva", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Tahoma", fontStyle: UIFont(name: "Tahoma", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false),
-        FontStyles(fontName: "Impact", fontStyle: UIFont(name: "Impact", size: 17) ?? UIFont.systemFont(ofSize: 17), fontSelected: false)
-    ]
-
+  weak var delegate: ThemeSelectionDelegate?
   
   override func viewDidLoad() {
-        super.viewDidLoad()
-
+    super.viewDidLoad()
+    
     themeTableView.delegate = self
     themeTableView.dataSource = self
     themeTableView.register(UINib(nibName: "FontStyleCell", bundle: .main), forCellReuseIdentifier: "FontStyleCell")
@@ -64,7 +35,7 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
     view.addGestureRecognizer(swipeRightGesture)
     
     swipeRightGesture.delegate = self
-    }
+  }
   
   @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
     if let navigationController = navigationController , navigationController.viewControllers.count > 1 {
@@ -77,6 +48,13 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   @IBAction func backBtnAction(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
+  @IBAction func doneButton(_ sender: UIButton) {
+    
+    let selectedFont = font[currentIndexPath?.row ?? 0].fontStyle
+    delegate?.didSelectFont(font: selectedFont ?? UIFont.systemFont(ofSize: 17))
     self.navigationController?.popViewController(animated: true)
   }
 }
@@ -109,6 +87,8 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
       
     font[indexPath.row].fontSelected = true
     tableView.reloadRows(at: [indexPath], with: .automatic)
-    
+   
+//    let selectedFont = font[indexPath.row].fontStyle
+//    delegate?.didSelectFont(font: selectedFont ?? UIFont.systemFont(ofSize: 17))
   }
 }

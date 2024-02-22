@@ -7,18 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ThemeSelectionDelegate {
   
   @IBOutlet weak var quotestblView: UITableView!
   
+  var selectedFont: String?
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image7.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image8.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image1.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image5.jpeg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
   
   override func viewDidLoad() {
@@ -36,6 +37,23 @@ class ViewController: UIViewController {
     quotestblView.dataSource = self
     quotestblView.register(UINib(nibName: "QuotesCell", bundle: .main), forCellReuseIdentifier: "QuotesCell")
     
+    let defaultFontName = "CreamCake"
+    let defaultFontSize: CGFloat = 40
+
+    if let defaultFont = UIFont(name: defaultFontName, size: defaultFontSize) {
+    for index in 0..<quotes.count {
+            quotes[index].quoteFont = defaultFont
+        }
+    } else {
+        // Fallback to system font if CreamCake is not available
+        for index in 0..<quotes.count {
+            quotes[index].quoteFont = UIFont.systemFont(ofSize: defaultFontSize)
+        }
+    }
+
+    quotestblView.reloadData()
+        
+    
     let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeUp(_:)))
     swipeUp.direction = .up
     quotestblView.addGestureRecognizer(swipeUp)
@@ -47,6 +65,29 @@ class ViewController: UIViewController {
     quotestblView.isScrollEnabled = false
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if let font = UserDefaults.standard.value(forKey: selectedUserDefaultFont) as? String {
+      selectedFont = font
+      quotestblView.reloadData()
+    }
+  }
+  
+  func didSelectFont(font: UIFont) {
+    print("selectedfont: \(font)")
+    
+    let newFontSize: CGFloat = 30
+    let newFont = UIFont(name: font.fontName, size: newFontSize) ?? UIFont.systemFont(ofSize: 30)
+    
+    for index in 0..<quotes.count {
+      quotes[index].quoteFont = newFont
+    }
+    
+    UserDefaults.standard.setValue(font.fontName, forKey: selectedUserDefaultFont)
+    quotestblView.reloadData()
+  }
+  
   @IBAction func forYouBtnAction(_ sender: UIButton) {
     
     print("For you clicked")
@@ -54,6 +95,7 @@ class ViewController: UIViewController {
   
   @IBAction func themeBtnAction(_ sender: UIButton) {
     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController {
+      vc.delegate = self
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }
@@ -102,6 +144,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     cell.img.contentMode = .scaleToFill
     cell.img.image = quotes[indexPath.row].image
     cell.quote.text = quotes[indexPath.row].quoteText
+    cell.quote.font = /*quotes[indexPath.row].quoteFont*/ UIFont(name: selectedFont ?? "Cream Cake", size: 30) ?? UIFont.systemFont(ofSize: 17) 
     cell.author.text = quotes[indexPath.row].author
     
     return cell
