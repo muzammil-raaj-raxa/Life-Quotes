@@ -1,47 +1,61 @@
-//
-//  LifeQuote.swift
-//  LifeQuote
-//
-//  Created by Mag isb-10 on 20/02/2024.
-//
-
 import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-      SimpleEntry(date: Date(), backgroundImage: "image1", quote: "Do or Die")
+        let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
+
+        let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
+        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+
+        return SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-      let entry = SimpleEntry(date: Date(), backgroundImage: "image1", quote: "Do or Die")
-          completion(entry)
+        let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
+
+        let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
+        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+
+        let entry = SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
+        completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-          _ = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: Date(), backgroundImage: "image1", quote: "Do or Die")
-            entries.append(entry)
+        let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
+        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+
+        if #available(iOS 16, *) {
+            let entriesCount = context.family == .systemSmall ? 1 : 5
+
+            var entries: [SimpleEntry] = []
+            let currentDate = Date()
+
+            // Generate entries for the desired count
+            for hourOffset in 0..<entriesCount {
+                let date = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+                let entry = SimpleEntry(date: date, backgroundImage: imageName, quote: quoteText)
+                entries.append(entry)
+            }
+
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
+        } else {
+            // Handle cases where iOS version is below 16 (e.g., display a placeholder or message)
+            completion(Timeline(entries: [], policy: .never))
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
-  let date: Date
-  let backgroundImage: String
-  let quote: String
+    let date: Date
+    let backgroundImage: String
+    let quote: String
 }
 
-
-struct QuotesEntryView : View {
+struct QuotesEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
 
@@ -57,8 +71,8 @@ struct QuotesEntryView : View {
             .edgesIgnoringSafeArea(.all)
             .background(
                 Image(entry.backgroundImage)
+                    .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .scaledToFill()
             )
         case .accessoryInline:
             Text(entry.quote)
@@ -66,13 +80,12 @@ struct QuotesEntryView : View {
                 .foregroundColor(.white)
         case .accessoryRectangular:
             Text(entry.quote)
-            .foregroundColor(Color.primary)
+                .foregroundColor(Color.primary)
         @unknown default:
             EmptyView()
         }
     }
 }
-
 
 struct Quotes: Widget {
     let kind: String = "LifeQuote"
@@ -83,7 +96,7 @@ struct Quotes: Widget {
                 QuotesEntryView(entry: entry)
                     .containerBackground(.clear, for: .widget)
             } else {
-              QuotesEntryView(entry: entry)
+                QuotesEntryView(entry: entry)
                     .padding(0)
                     .background(Color.clear)
             }
@@ -92,17 +105,23 @@ struct Quotes: Widget {
         .description("Quotes about life lessons.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryInline, .accessoryRectangular])
     }
-
 }
 
 #Preview(as: .systemSmall) {
     Quotes()
 } timeline: {
-  SimpleEntry(date: Date(), backgroundImage: "image1", quote: "Do or Die")
+    let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
+    let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
+    SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
 }
 
 #Preview(as: .accessoryRectangular) {
     Quotes()
 } timeline: {
-  SimpleEntry(date: Date(), backgroundImage: "image1", quote: "Do or Die")
+    let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
+    let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
+    SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
+  
 }

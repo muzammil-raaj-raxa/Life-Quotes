@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import WidgetKit
 
 class ViewController: UIViewController, ThemeSelectionDelegate {
+
+  
   
   @IBOutlet weak var quotestblView: UITableView!
   
@@ -15,21 +18,11 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image0.png"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image1.png"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image2.png"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image3.png"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image4.png"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
   
   override func viewDidLoad() {
@@ -48,7 +41,7 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
     quotestblView.register(UINib(nibName: "QuotesCell", bundle: .main), forCellReuseIdentifier: "QuotesCell")
     
     let defaultFontName = "CreamCake"
-    let defaultFontSize: CGFloat = 40
+    let defaultFontSize: CGFloat = 45
 
     if let defaultFont = UIFont(name: defaultFontName, size: defaultFontSize) {
     for index in 0..<quotes.count {
@@ -83,24 +76,37 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
       quotestblView.reloadData()
     }
   }
-  
   func didSelectFont(font: UIFont) {
     print("selectedfont: \(font)")
-    
-    let newFontSize: CGFloat = 30
-    let newFont = UIFont(name: font.fontName, size: newFontSize) ?? UIFont.systemFont(ofSize: 30)
-    
-    for index in 0..<quotes.count {
-      quotes[index].quoteFont = newFont
-    }
-    
-    UserDefaults.standard.setValue(font.fontName, forKey: selectedUserDefaultFont)
-    quotestblView.reloadData()
   }
   
+  func saveQuoteToWidget(quote: Quote) {
+      let sharedContainerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.mag-isb.LifeQuotes.LifeQuote")
+
+      // Convert UIImage to Data (PNG representation)
+    if let image = quote.image, let imageData = image.pngData(), let containerURL = sharedContainerURL {
+      let imagePath = containerURL.appendingPathComponent("imageData.png")
+      
+      do {
+        try imageData.write(to: imagePath)
+        UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")?.set(imagePath.path, forKey: "imageData")
+      } catch {
+        print("Error writing image data: \(error)")
+      }
+    }
+
+
+      // Save other data as usual
+      UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")?.set(quote.quoteText, forKey: "quoteText")
+      
+
+
+      WidgetCenter.shared.reloadAllTimelines()
+  }
+
+  
   @IBAction func forYouBtnAction(_ sender: UIButton) {
-    
-    print("For you clicked")
+      print("For you clicked")
   }
   
   @IBAction func themeBtnAction(_ sender: UIButton) {
@@ -115,6 +121,11 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   }
   
   @IBAction func configureBtnAction(_ sender: UIButton) {
+    let currentQuote = quotes[currentIndex]
+    
+    // Call the function to save the quote to the widget
+    saveQuoteToWidget(quote: currentQuote)
+    
     print("Configure clicked")
   }
   
