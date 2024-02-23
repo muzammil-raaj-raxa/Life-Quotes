@@ -20,6 +20,16 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
     Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
     Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
     Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image33.jpg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image22.jpg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image11.jpg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image44.jpg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image55.jpg"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
   
   override func viewDidLoad() {

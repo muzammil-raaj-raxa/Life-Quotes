@@ -37,6 +37,16 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
     swipeRightGesture.delegate = self
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+
+      // Reset font selection state before displaying cells
+      for index in 0..<font.count {
+          font[index].fontSelected = false
+      }
+  }
+
+  
   @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
     if let navigationController = navigationController , navigationController.viewControllers.count > 1 {
       navigationController.popViewController(animated: true)
@@ -84,11 +94,7 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     currentIndexPath = indexPath
-      
     font[indexPath.row].fontSelected = true
     tableView.reloadRows(at: [indexPath], with: .automatic)
-   
-//    let selectedFont = font[indexPath.row].fontStyle
-//    delegate?.didSelectFont(font: selectedFont ?? UIFont.systemFont(ofSize: 17))
   }
 }
