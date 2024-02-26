@@ -16,11 +16,11 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image2.png"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image1.png"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image0.png"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image3.png"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image4.png"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image0.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image1.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image3.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image4.jpeg"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
   
   override func viewDidLoad() {

@@ -6,7 +6,10 @@ struct Provider: TimelineProvider {
         let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
 
         let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+        let imageName = sharedDefaults?.string(forKey: "imageData") ?? "image0" // Fallback image
+      
+      print("Image Name: \(imageName)")
+
 
         return SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
     }
@@ -15,7 +18,10 @@ struct Provider: TimelineProvider {
         let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
 
         let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+        let imageName = sharedDefaults?.string(forKey: "imageData") ?? "image0" // Fallback image
+      
+      print("Image Name: \(imageName)")
+
 
         let entry = SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
         completion(entry)
@@ -25,7 +31,10 @@ struct Provider: TimelineProvider {
         let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
 
         let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-        let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1" // Fallback image
+        let imageName = sharedDefaults?.string(forKey: "imageData") ?? "image0" // Fallback image
+      
+      print("Image Name: \(imageName)")
+
 
         if #available(iOS 16, *) {
             let entriesCount = context.family == .systemSmall ? 1 : 5
@@ -71,7 +80,7 @@ struct QuotesEntryView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
             .background(
-                Image(entry.backgroundImage)
+              Image(uiImage: UIImage(contentsOfFile: entry.backgroundImage) ?? UIImage())
                     .aspectRatio(contentMode: .fill)
             )
         case .accessoryInline:
