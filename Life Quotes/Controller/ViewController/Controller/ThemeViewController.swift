@@ -45,17 +45,6 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
           font[index].fontSelected = false
       }
   }
-
-  
-  @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
-    if let navigationController = navigationController , navigationController.viewControllers.count > 1 {
-      navigationController.popViewController(animated: true)
-    }
-  }
-  
-  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    return true
-  }
   
   @IBAction func backBtnAction(_ sender: UIButton) {
     self.navigationController?.popViewController(animated: true)
@@ -69,6 +58,17 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     self.navigationController?.popViewController(animated: true)
   }
+  
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
+  }
+  
+  @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
+    if let navigationController = navigationController , navigationController.viewControllers.count > 1 {
+      navigationController.popViewController(animated: true)
+    }
+  }
+  
 }
 
 extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {

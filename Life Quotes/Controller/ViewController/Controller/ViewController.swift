@@ -16,11 +16,16 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image0.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
-    Quote(image: UIImage(named: "image1.jpeg"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
-    Quote(image: UIImage(named: "image3.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
-    Quote(image: UIImage(named: "image4.jpeg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image6.jpeg"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image5.jpeg"), quoteText: "Stay hungry, stay foolish.", author: " - Steve Jobs"),
+    Quote(image: UIImage(named: "image7.jpeg"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image10.jpeg"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
+    Quote(image: UIImage(named: "image9.jpeg"), quoteText: "Dream big." , author: "- Albert Einstein"),
+    Quote(image: UIImage(named: "image0.jpeg"), quoteText: "Dream, believe, achieve.", author: "- Usain Bolt"),
+    Quote(image: UIImage(named: "image1.jpeg"), quoteText: "Love all, trust few.", author: "- William Shakespeare"),
+    Quote(image: UIImage(named: "image2.jpeg"), quoteText: "Knowledge speaks, wisdom listens.", author: "- Jimi Hendrix"),
+    Quote(image: UIImage(named: "image3.jpeg"), quoteText: "Be the change you seek." , author: " - Mahatma Gandhi"),
+    Quote(image: UIImage(named: "image4.jpeg"), quoteText: "Infinite possibilities within you." , author: " - Albert Einstein"),
   ]
   
   override func viewDidLoad() {
@@ -74,6 +79,31 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
       quotestblView.reloadData()
     }
   }
+  
+  @IBAction func forYouBtnAction(_ sender: UIButton) {
+      print("For you clicked")
+  }
+  
+  @IBAction func themeBtnAction(_ sender: UIButton) {
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController {
+      vc.delegate = self
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+  }
+  
+  @IBAction func profileBtnAction(_ sender: UIButton) {
+    print("Profile clicked")
+  }
+  
+  @IBAction func configureBtnAction(_ sender: UIButton) {
+    let currentQuote = quotes[currentIndex]
+    
+    // Call the function to save the quote to the widget
+    saveQuoteToWidget(quote: currentQuote)
+    
+    print("Configure clicked")
+  }
+  
   func didSelectFont(font: UIFont) {
     print("selectedfont: \(font)")
     
@@ -103,31 +133,6 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
       // Save other data as usual
       UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")?.set(quote.quoteText, forKey: "quoteText")
       WidgetCenter.shared.reloadAllTimelines()
-  }
-
-  
-  @IBAction func forYouBtnAction(_ sender: UIButton) {
-      print("For you clicked")
-  }
-  
-  @IBAction func themeBtnAction(_ sender: UIButton) {
-    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController {
-      vc.delegate = self
-      self.navigationController?.pushViewController(vc, animated: true)
-    }
-  }
-  
-  @IBAction func profileBtnAction(_ sender: UIButton) {
-    print("Profile clicked")
-  }
-  
-  @IBAction func configureBtnAction(_ sender: UIButton) {
-    let currentQuote = quotes[currentIndex]
-    
-    // Call the function to save the quote to the widget
-    saveQuoteToWidget(quote: currentQuote)
-    
-    print("Configure clicked")
   }
   
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
