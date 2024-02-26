@@ -64,14 +64,14 @@ struct QuotesEntryView: View {
         case .systemSmall, .systemMedium, .systemLarge:
             VStack(alignment: .center) {
                 Text(entry.quote)
-                    .font(.title)
+                    .font(Font.custom("Montserrat-Medium", size: 25))
                     .foregroundColor(.white)
+                    
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
             .background(
                 Image(entry.backgroundImage)
-                    .resizable()
                     .aspectRatio(contentMode: .fill)
             )
         case .accessoryInline:
@@ -112,7 +112,7 @@ struct Quotes: Widget {
 } timeline: {
     let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
     let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image33"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
     SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
 }
 
@@ -121,7 +121,7 @@ struct Quotes: Widget {
 } timeline: {
     let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
     let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image33"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
     SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
   
 }

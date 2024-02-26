@@ -12,6 +12,8 @@
 		364FCF512B8710EA00CC9CCD /* FontStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */; };
 		364FCF522B8710EA00CC9CCD /* FontStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */; };
 		364FCF542B871FAA00CC9CCD /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FCF532B871FAA00CC9CCD /* FontStyles.swift */; };
+		36DEAF282B8C7C5A00FECA86 /* Cream Cake.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36DEAF272B8C7C5A00FECA86 /* Cream Cake.otf */; };
+		36DEAF2A2B8C7F8600FECA86 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36DEAF292B8C7F8600FECA86 /* Montserrat-Medium.ttf */; };
 		36EEF9012B85D5AD005E91B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */; };
 		36EEF9032B85D5AD005E91B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */; };
 		36EEF9182B85D61B005E91B7 /* QuotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36EEF9162B85D61A005E91B7 /* QuotesCell.xib */; };
@@ -64,6 +66,8 @@
 		364FCF4F2B8710EA00CC9CCD /* FontStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleCell.swift; sourceTree = "<group>"; };
 		364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontStyleCell.xib; sourceTree = "<group>"; };
 		364FCF532B871FAA00CC9CCD /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		36DEAF272B8C7C5A00FECA86 /* Cream Cake.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cream Cake.otf"; sourceTree = "<group>"; };
+		36DEAF292B8C7F8600FECA86 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 				364FCF502B8710EA00CC9CCD /* FontStyleCell.xib */,
 			);
 			path = FontStyles;
+			sourceTree = "<group>";
+		};
+		36DEAF262B8C7C0F00FECA86 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				36DEAF292B8C7F8600FECA86 /* Montserrat-Medium.ttf */,
+				36DEAF272B8C7C5A00FECA86 /* Cream Cake.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		36EEF8F42B85D5AC005E91B7 = {
@@ -239,6 +252,7 @@
 				36EEF9422B85D7BB005E91B7 /* QuotesBundle.swift */,
 				36EEF9442B85D7BB005E91B7 /* QuotesLiveActivity.swift */,
 				36EEF9462B85D7BB005E91B7 /* Quotes.swift */,
+				36DEAF262B8C7C0F00FECA86 /* Fonts */,
 				36EEF9522B85D7E8005E91B7 /* Assets.xcassets */,
 				36EEF94A2B85D7BD005E91B7 /* Info.plist */,
 			);
@@ -340,6 +354,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EEF9532B85D7E8005E91B7 /* Assets.xcassets in Resources */,
+				36DEAF2A2B8C7F8600FECA86 /* Montserrat-Medium.ttf in Resources */,
+				36DEAF282B8C7C5A00FECA86 /* Cream Cake.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
