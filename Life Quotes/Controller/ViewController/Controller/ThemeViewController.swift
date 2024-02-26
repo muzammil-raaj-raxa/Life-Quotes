@@ -63,8 +63,10 @@ class ThemeViewController: UIViewController, UIGestureRecognizerDelegate {
   
   @IBAction func doneButton(_ sender: UIButton) {
     
-    let selectedFont = font[currentIndexPath?.row ?? 0].fontStyle
-    delegate?.didSelectFont(font: selectedFont ?? UIFont.systemFont(ofSize: 17))
+    if let selectedIndexPath = currentIndexPath {
+      let selectedFont = font[selectedIndexPath.row].fontStyle
+      delegate?.didSelectFont(font: selectedFont ?? UIFont.systemFont(ofSize: 17))
+    }
     self.navigationController?.popViewController(animated: true)
   }
 }

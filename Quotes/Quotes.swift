@@ -112,7 +112,7 @@ struct Quotes: Widget {
 } timeline: {
     let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
     let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image33"
     SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
 }
 
@@ -121,7 +121,7 @@ struct Quotes: Widget {
 } timeline: {
     let sharedDefaults = UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")
     let quoteText = sharedDefaults?.string(forKey: "quoteText") ?? "Default Quote"
-    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image1"
+    let imageName = sharedDefaults?.string(forKey: "imageName") ?? "image33"
     SimpleEntry(date: Date(), backgroundImage: imageName, quote: quoteText)
   
 }

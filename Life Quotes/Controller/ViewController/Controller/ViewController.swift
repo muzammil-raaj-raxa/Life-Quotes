@@ -9,8 +9,6 @@ import UIKit
 import WidgetKit
 
 class ViewController: UIViewController, ThemeSelectionDelegate {
-
-  
   
   @IBOutlet weak var quotestblView: UITableView!
   
@@ -18,9 +16,9 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   var currentIndex = 0
   
   var quotes: [Quote] = [
-    Quote(image: UIImage(named: "image0.png"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
+    Quote(image: UIImage(named: "image2.png"), quoteText: "Dream, dare, conquer.", author: "- raaj"),
     Quote(image: UIImage(named: "image1.png"), quoteText: "Curiosity is the engine of innovation.", author: "- Albert Einstein"),
-    Quote(image: UIImage(named: "image2.png"), quoteText: "Love conquers all.", author: "- Virgil"),
+    Quote(image: UIImage(named: "image0.png"), quoteText: "Love conquers all.", author: "- Virgil"),
     Quote(image: UIImage(named: "image3.png"), quoteText: "I write myself into existence." , author: "- Maxine Hong Kingston"),
     Quote(image: UIImage(named: "image4.png"), quoteText: "Dream big." , author: "- Albert Einstein"),
   ]
@@ -78,6 +76,14 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
   }
   func didSelectFont(font: UIFont) {
     print("selectedfont: \(font)")
+    
+    let fixedFontSize: CGFloat = 30
+    
+    for index in 0..<quotes.count {
+      // Use the selected font family and set a fixed font size
+      quotes[index].quoteFont = UIFont(name: font.fontName, size: fixedFontSize) ?? UIFont.systemFont(ofSize: fixedFontSize)
+    }
+    quotestblView.reloadData()
   }
   
   func saveQuoteToWidget(quote: Quote) {
@@ -94,13 +100,8 @@ class ViewController: UIViewController, ThemeSelectionDelegate {
         print("Error writing image data: \(error)")
       }
     }
-
-
       // Save other data as usual
       UserDefaults(suiteName: "group.mag-isb.LifeQuotes.LifeQuote")?.set(quote.quoteText, forKey: "quoteText")
-      
-
-
       WidgetCenter.shared.reloadAllTimelines()
   }
 
@@ -165,7 +166,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     cell.img.contentMode = .scaleToFill
     cell.img.image = quotes[indexPath.row].image
     cell.quote.text = quotes[indexPath.row].quoteText
-    cell.quote.font = /*quotes[indexPath.row].quoteFont*/ UIFont(name: selectedFont ?? "Cream Cake", size: 30) ?? UIFont.systemFont(ofSize: 17) 
+    cell.quote.font = quotes[indexPath.row].quoteFont
     cell.author.text = quotes[indexPath.row].author
     
     return cell
