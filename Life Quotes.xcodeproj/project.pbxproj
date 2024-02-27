@@ -68,7 +68,7 @@
 		364FCF532B871FAA00CC9CCD /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		36DEAF272B8C7C5A00FECA86 /* Cream Cake.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cream Cake.otf"; sourceTree = "<group>"; };
 		36DEAF292B8C7F8600FECA86 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		36EEF8FD2B85D5AD005E91B7 /* G Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "G Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EEF9002B85D5AD005E91B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EEF9022B85D5AD005E91B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		36EEF90E2B85D5AE005E91B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		36EEF8FE2B85D5AD005E91B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				36EEF8FD2B85D5AD005E91B7 /* G Journal.app */,
+				36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */,
 				36EEF93B2B85D7BB005E91B7 /* QuotesExtension.appex */,
 			);
 			name = Products;
@@ -262,9 +262,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		36EEF8FC2B85D5AD005E91B7 /* G Journal */ = {
+		36EEF8FC2B85D5AD005E91B7 /* Life Quotes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 36EEF9112B85D5AE005E91B7 /* Build configuration list for PBXNativeTarget "G Journal" */;
+			buildConfigurationList = 36EEF9112B85D5AE005E91B7 /* Build configuration list for PBXNativeTarget "Life Quotes" */;
 			buildPhases = (
 				36EEF8F92B85D5AD005E91B7 /* Sources */,
 				36EEF8FA2B85D5AD005E91B7 /* Frameworks */,
@@ -276,9 +276,9 @@
 			dependencies = (
 				36EEF94C2B85D7BD005E91B7 /* PBXTargetDependency */,
 			);
-			name = "G Journal";
+			name = "Life Quotes";
 			productName = "Life Quotes";
-			productReference = 36EEF8FD2B85D5AD005E91B7 /* G Journal.app */;
+			productReference = 36EEF8FD2B85D5AD005E91B7 /* Life Quotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		36EEF93A2B85D7BB005E91B7 /* QuotesExtension */ = {
@@ -316,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 36EEF8F82B85D5AC005E91B7 /* Build configuration list for PBXProject "G Journal" */;
+			buildConfigurationList = 36EEF8F82B85D5AC005E91B7 /* Build configuration list for PBXProject "Life Quotes" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -329,7 +329,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				36EEF8FC2B85D5AD005E91B7 /* G Journal */,
+				36EEF8FC2B85D5AD005E91B7 /* Life Quotes */,
 				36EEF93A2B85D7BB005E91B7 /* QuotesExtension */,
 			);
 		};
@@ -649,7 +649,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		36EEF8F82B85D5AC005E91B7 /* Build configuration list for PBXProject "G Journal" */ = {
+		36EEF8F82B85D5AC005E91B7 /* Build configuration list for PBXProject "Life Quotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36EEF90F2B85D5AE005E91B7 /* Debug */,
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36EEF9112B85D5AE005E91B7 /* Build configuration list for PBXNativeTarget "G Journal" */ = {
+		36EEF9112B85D5AE005E91B7 /* Build configuration list for PBXNativeTarget "Life Quotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36EEF9122B85D5AE005E91B7 /* Debug */,
